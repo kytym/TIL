@@ -1,18 +1,19 @@
 import random
+from typing import List 
 
-def in_order(numbers):
+def in_order(numbers: List[int]) -> bool:
     return  all(numbers[i] <= numbers[i+1] for i in range(len(numbers)-1))
     # for i in range(len(numbers)-1):
     #     if numbers[i] > numbers[i+1]:
     #         return False
     # return True
 
-def bogo_sort(numbers):
+def bogo_sort(numbers: List[int]) -> List[int]:
     while not in_order(numbers):
         random.shuffle(numbers)
     return numbers
 
 if __name__ == "__main__":
-    numbers = [1,5,3,2,6,10,4]
+    numbers = [random.randint(0,100) for _ in range(5)]
     print(bogo_sort(numbers))
     
